@@ -2,10 +2,8 @@ $file_directory = "games.log"
 class Main
     def readFile
         if File.exist?($file_directory)
-            quakeLog = File.open($file_directory) 
-            quakeLog_data = quakeLog.readline;
-            quakeLog.close
-            return puts quakeLog_data
+            quakeLog_firstLine = File.open($file_directory, &:readline) 
+            return puts quakeLog_firstLine
         else
             return puts "Files does not exist on main directory"
         end
