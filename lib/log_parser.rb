@@ -19,8 +19,7 @@ class LogParser
     lines = File.foreach(file).count
     file.close
     lines_report = {@file_path =>{:lines => lines}}
-    lines_report_json = lines_report.to_json
-    lines_report_json
+    lines_report.to_json
     end
   end
 
