@@ -6,17 +6,11 @@ class LogParser
   end
 
   def read_line
-    file = File.open(@file_path)
-    line_first = file.readline
-    file.close
-    line_first
+    File.open(@file_path, &:readline)
   end
 
   def parse_lines
-    file = File.open(@file_path)
-    lines = File.foreach(file).count
-    file.close
-    lines_report = { @file_path => { lines: lines } }
-    lines_report.to_json
+    line_count = File.open(@file_path, &:readlines).count
+    { @file_path => { lines: line_count } }.to_json
   end
 end
