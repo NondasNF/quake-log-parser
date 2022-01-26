@@ -17,11 +17,11 @@ describe 'LogParser' do
     end
   end
 
-  describe '#parse_lines' do
+  describe '#count_lines' do
     it 'return json' do
       game_parser = LogParser.new('./spec/fixtures/game_test.log')
 
-      response = game_parser.parse_lines
+      response = game_parser.count_lines
 
       expect(response).to eq("{\"./spec/fixtures/game_test.log\":{\"lines\":9}}")
     end

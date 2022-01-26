@@ -10,7 +10,10 @@ class LogParser
   end
 
   def parse_lines
-    line_count = File.open(@file_path, &:readlines).count
-    { @file_path => { lines: line_count } }.to_json
+    { @file_path => { lines: count_lines } }.to_json
+  end
+
+  def count_lines
+    File.open(@file_path, &:readlines).count
   end
 end
